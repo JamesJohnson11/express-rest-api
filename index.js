@@ -4,7 +4,7 @@ const posts = require('./posts.json');
 const fs = require('fs');
 
 app.use(express.json());
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: false }));
 
 
 // Create new post
@@ -51,8 +51,8 @@ app.put('/posts/:id', (req, res) => {
         return res.status(404).json({ message: "No post found." });
     } else {
         // Will only update post title or body. User ID and post ID will remain intact regardless of user input.
-        postToUpdate.body = req.body.post.body;
-        postToUpdate.title = req.body.post.title;
+        postToUpdate.body = req.body.body;
+        postToUpdate.title = req.body.title;
 
         let stringedData = JSON.stringify(posts, null, 2);
         fs.writeFile('posts.json', stringedData, function (err) {

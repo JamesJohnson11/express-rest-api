@@ -602,7 +602,7 @@
   {
     "userId": 2,
     "id": 101,
-    "title": "Am I able to create new posts?",
+    "title": "Is this updated now?",
     "body": "We will find out if I am able to create new posts once we try a post request with this as the body."
   }
 ]
